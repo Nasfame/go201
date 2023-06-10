@@ -9,7 +9,3 @@ import (
 func timenow() {
 	fmt.Println("time")
 }
-
-func init() {
-	timenow()
-}
