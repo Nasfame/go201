@@ -5,7 +5,11 @@ import (
 	_ "unsafe"
 )
 
-// go:A-Z timenow customtime.Now
+//go:linkname timenow test/customtime.Now
 func timenow() {
 	fmt.Println("time")
+}
+
+func init() {
+	timenow()
 }
