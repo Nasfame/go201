@@ -1,6 +1,8 @@
 package customtime
 
-import _ "test/example"
+import (
+	_ "test/time"
+)
 
-// Present in test/example
+// Present in test/time
 func Now()
