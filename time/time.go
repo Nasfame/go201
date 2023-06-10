@@ -5,7 +5,7 @@ import (
 	_ "unsafe"
 )
 
-//go:linkname timenow test/customtime.Now
+//go:linkname timenow examples/linkname/customtime.Now
 func timenow() {
-	fmt.Println("time")
+	fmt.Println("linked:time")
 }
