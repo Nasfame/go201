@@ -1,5 +1,10 @@
 #!/bin/sh
 
+export GOBIN="$(pwd)/bin"
+
+echo 'export PATH="$PATH:$GOBIN"' >> ~/.bashrc
+echo 'export PATH="$PATH:$GOBIN"' >> ~/.zshrc
+
 go install github.com/cosmtrek/air@latest
 
 sudo apt update -y
@@ -18,5 +23,7 @@ mv ./bin/wazero. ./go/bin/wasm
 # alias wasm="$(pwd)/bin/wazero"
 
 curl https://wasmtime.dev/install.sh -sSf | bash
+
 source ~/.bashrc
+source ~/.zshrc
 
