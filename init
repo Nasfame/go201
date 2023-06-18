@@ -1,0 +1,22 @@
+#!/bin/sh
+
+go install github.com/cosmtrek/air@latest
+
+sudo apt update -y
+sudo apt install tmux -y
+
+curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'
+
+goup install
+
+goup install tip
+
+curl https://wazero.io/install.sh | sh
+
+mv ./bin/wazero. ./go/bin/wasm
+
+# alias wasm="$(pwd)/bin/wazero"
+
+curl https://wasmtime.dev/install.sh -sSf | bash
+source ~/.bashrc
+
