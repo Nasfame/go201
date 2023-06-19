@@ -3,12 +3,10 @@ package main
 import (
 	"errors"
 	"fmt"
+	"golang.org/x/net/html"
 	"io"
 	"os"
 	"strings"
-
-	"github.com/sergi/go-diff/diffmatchpatch"
-	"golang.org/x/net/html"
 )
 
 var message = `
@@ -17,8 +15,6 @@ var message = `
 
 func main() {
 	tokenizer := html.NewTokenizer(strings.NewReader(message))
-
-	dmp := diffmatchpatch.New()
 
 	for {
 		tokenizer.Next()
@@ -33,19 +29,11 @@ func main() {
 		}
 
 		tk := tokenizer.Token()
-		original := tk.String()
+		fmt.Println(tk.String())
 
-		unescaped := html.UnescapeString(original)
-
-		diffs := dmp.DiffMain(original, unescaped, false)
-		diffText := dmp.DiffPrettyText(diffs)
-
-		fmt.Println("Original:")
-		fmt.Println(original)
-		fmt.Println("Unescaped:")
+		unescaped := html.UnescapeString(tk.String())
 		fmt.Println(unescaped)
-		fmt.Println("Diff:")
-		fmt.Println(diffText)
-		fmt.Println()
+		
 	}
+
 }
