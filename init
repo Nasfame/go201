@@ -13,7 +13,7 @@ echo 'export PATH="$PATH:$GOBIN"' >> ~/.bashrc
 echo 'export PATH="$PATH:$GOBIN"' >> ~/.zshrc
 
 go install github.com/cosmtrek/air@latest
-
+ go install github.com/clipperhouse/gen@latest
 
 curl https://wazero.io/install.sh | sh
 cp ./bin/wazero $GOBIN/wasm
