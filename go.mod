@@ -1,4 +1,4 @@
-module examples/linkname
+module go201
 
 go 1.20
 
