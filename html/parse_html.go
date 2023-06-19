@@ -3,18 +3,21 @@ package main
 import (
 	"errors"
 	"fmt"
-	"golang.org/x/net/html"
 	"io"
 	"os"
 	"strings"
+
+	"golang.org/x/net/html"
 )
 
 var message = `
-<div style='font-family:arial, "helvetica neue", helvetica, sans-serif;'>Mehr Informationen</div>
+<div style='font-family: "Comic Sans MS", Times, serif;'>Mehr Informationen</div>
 `
 
 func main() {
 	tokenizer := html.NewTokenizer(strings.NewReader(message))
+
+	fmt.Println("original message", message)
 
 	for {
 		tokenizer.Next()
@@ -31,9 +34,7 @@ func main() {
 		tk := tokenizer.Token()
 		fmt.Println(tk.String())
 
-		unescaped := html.UnescapeString(tk.String())
-		fmt.Println(unescaped)
-		
-	}
+		//fmt.Println(html.UnescapeString(tk.String()))
 
+	}
 }
