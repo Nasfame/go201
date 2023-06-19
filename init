@@ -9,9 +9,6 @@ export GOBIN="/go/bin"
 echo 'export PATH="$PATH:$GOBIN"' >> ~/.bashrc
 
 
-
-echo 'export PATH="$PATH:$GOBIN"' >> ~/.zshrc
-
 go install github.com/cosmtrek/air@latest
  go install github.com/clipperhouse/gen@latest
 
@@ -35,6 +32,9 @@ goup version
 
 goup ls
 
+sudo rm -rf /usr/local/go
+
+unset GOROOT
 
 go env GOROOT
 
