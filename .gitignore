@@ -1,3 +1,4 @@
 tmp/
 bazel*/
 bin/
+.DS_Store

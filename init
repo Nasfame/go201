@@ -1,29 +1,95 @@
-#!/bin/sh
-
-export GOBIN="$(pwd)/bin"
-
-echo 'export PATH="$PATH:$GOBIN"' >> ~/.bashrc
-echo 'export PATH="$PATH:$GOBIN"' >> ~/.zshrc
-
-go install github.com/cosmtrek/air@latest
+#!/bin/bash
 
 sudo apt update -y
 sudo apt install tmux -y
 
-curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'
+export GOBIN="$(pwd)/bin"
+export GOBIN="/go/bin"
 
-goup install
+echo 'export PATH="$PATH:$GOBIN"' >> ~/.bashrc
 
-goup install tip
+
+
+echo 'export PATH="$PATH:$GOBIN"' >> ~/.zshrc
+
+go install github.com/cosmtrek/air@latest
+
 
 curl https://wazero.io/install.sh | sh
-
-mv ./bin/wazero. ./go/bin/wasm
-
+cp ./bin/wazero $GOBIN/wasm
 # alias wasm="$(pwd)/bin/wazero"
-
 curl https://wasmtime.dev/install.sh -sSf | bash
 
 source ~/.bashrc
-source ~/.zshrc
 
+curl -sSf https://raw.githubusercontent.com/owenthereal/goup/master/install.sh | sh -s -- '--skip-prompt'
+
+source $HOME/.go/env
+
+goup install
+
+echo 'export PATH="$PATH:/home/codespace/.go/bin"' >> ~/.bashrc
+echo 'export PATH="$PATH:/home/codespace/.go/current/bin"' >> ~/.bashrc
+
+goup version
+
+goup ls
+
+
+go env GOROOT
+
+go version
+
+goup upgrade
+
+goup install tip &
+goup install 1.13 &
+goup install 1.14 &
+goup install 1.15&
+goup install 1.16 &
+goup install 1.17 &
+goup install 1.18 &
+goup install 1.19 &
+
+source ~/.bashrc
+
+# goup set
+
+# goup search #list all golang versions
+
+tmux new-session -d -s mysession
+tmux split-window -h -t mysession:0
+
+commands=("goup install tip" "goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17" "goup install 1.18" "goup install 1.19")
+
+for i in "${commands[@]}"; do
+    tmux select-pane -t mysession:0
+    tmux split-window -h -t mysession:0
+    tmux send-keys "$i" Enter
+done
+
+tmux select-pane -t mysession:0
+tmux attach-session -t mysession
+
+
+# tmux new-session -d -s install-go
+
+# # Splitting the first pane horizontally
+# tmux split-window -h -t install-go:0
+
+# # Splitting the first pane vertically
+# tmux split-window -v -t install-go:0
+
+# # Splitting the second pane vertically
+# tmux split-window -v -t install-go:1
+
+# commands=("goup install tip" "goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17" "goup install 1.18" "goup install 1.19")
+
+# for i in "${commands[@]}"; do
+#     tmux select-pane -t install-go:0
+#     tmux split-window -v -t install-go:0
+#     tmux send-keys "$i" Enter
+# done
+
+# tmux select-pane -t install-go:0
+# tmux attach-session -t install-go

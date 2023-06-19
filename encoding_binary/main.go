@@ -6,6 +6,7 @@ import (
 	"encoding/binary"
 	"fmt"
 	"log"
+	"runtime"
 )
 
 type MyStruct struct {
@@ -16,7 +17,10 @@ func main() {
 	var a *MyStruct
 	hash := md5.New()
 
-	fmt.Printf("a is %p; a==nil is \n",a,a==nil)
+	fmt.Println("go-",runtime.Version())
+
+	fmt.Printf("a is %p; a==nil is %t \n\n",a,a==nil)
+
 	err := binary.Write(bytes.NewBuffer(nil), binary.LittleEndian, a)
 	if err!=nil{
 		log.Fatal("main ended with panic", err)
