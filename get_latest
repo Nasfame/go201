@@ -1,0 +1,23 @@
+#!/bin/bash
+
+versions=$(goup search)
+
+filtered_versions=$(echo "$versions" | grep -v -E '(beta|rc)')
+minor_versions=$(echo "$filtered_versions" | awk -F'.' '{ print $1"."$2 }' | sort -u)
+latest_versions=()
+
+
+for minor_version in $minor_versions; do
+    latest_version=$(echo "$filtered_versions" | grep -E "^$minor_version\." | sort -V | tail -1)
+    echo "Latest version of $minor_version: $latest_version"
+    latest_versions+=($latest_version)
+done
+
+echo "latest_versions"
+
+# echo $latest_versions
+
+# Print the array elements
+# for element in "${latest_versions[@]}"; do
+#     echo "$element"
+# done

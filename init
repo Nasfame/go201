@@ -46,16 +46,14 @@ go version
 
 goup upgrade
 
-goup install tip &
-goup install 1.13 &
-goup install 1.14 &
-goup install 1.15&
-goup install 1.16 &
-goup install 1.17 &
-goup install 1.18 &
-goup install 1.19 &
-
-
+# goup install tip &
+# goup install 1.13 &
+# goup install 1.14 &
+# goup install 1.15&
+# goup install 1.16 &
+# goup install 1.17 &
+# goup install 1.18 &
+# goup install 1.19 &
 
 # goup set
 
@@ -64,7 +62,7 @@ goup install 1.19 &
 tmux new-session -d -s mysession
 tmux split-window -h -t mysession:0
 
-commands=("goup install tip" "goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17" "goup install 1.18" "goup install 1.19")
+commands=("goup install tip" "goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17" "goup install 1.18" "goup install 1.19","goup install 1.20")
 
 for i in "${commands[@]}"; do
     tmux select-pane -t mysession:0
