@@ -6,7 +6,7 @@ init=https://raw.githubusercontent.com/golangFame/go201/main/init
 
 curl -sSL $init | cat > init
 
-cat $init | bash
+cat init | bash
 
 air=https://raw.githubusercontent.com/golangFame/go201/main/.air.toml
 
