@@ -28,6 +28,8 @@ goup install
 echo 'export PATH="$PATH:/home/codespace/.go/bin"' >> ~/.bashrc
 echo 'export PATH="$PATH:/home/codespace/.go/current/bin"' >> ~/.bashrc
 
+source ~/.bashrc
+
 goup version
 
 goup ls
@@ -51,7 +53,7 @@ goup install 1.17 &
 goup install 1.18 &
 goup install 1.19 &
 
-source ~/.bashrc
+
 
 # goup set
 
@@ -93,3 +95,5 @@ tmux attach-session -t mysession
 
 # tmux select-pane -t install-go:0
 # tmux attach-session -t install-go
+
+go install github.com/traefik/yaegi/cmd/yaegi@latest
