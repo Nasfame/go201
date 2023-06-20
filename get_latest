@@ -18,6 +18,8 @@ done
 #     echo "$element"
 # done
 
+tmux kill-session -t install-go
+
 tmux new-session -d -s install-go
 
 # Splitting the first pane horizontally
@@ -36,10 +38,8 @@ for i in "${latest_versions[@]}"; do
     echo $command
     tmux select-pane -t install-go:0
     tmux split-window -v -t install-go:0
-    tmux send-keys "$i" Enter
+    tmux send-keys "$command" Enter
 done
 
-tmux select-pane -t install-go:0
-tmux attach-session -t install-go
-
-
+# tmux select-pane -t install-go:0
+# tmux attach-session -t install-go
