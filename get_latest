@@ -13,11 +13,8 @@ for minor_version in $minor_versions; do
     latest_versions+=($latest_version)
 done
 
-echo "latest_versions"
-
-# echo $latest_versions
-
 # Print the array elements
 # for element in "${latest_versions[@]}"; do
 #     echo "$element"
 # done
+
