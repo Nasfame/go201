@@ -4,7 +4,7 @@ versions=$(goup search)
 
 filtered_versions=$(echo "$versions" | grep -v -E '(beta|rc)')
 minor_versions=$(echo "$filtered_versions" | awk -F'.' '{ print $1"."$2 }' | sort -u)
-latest_versions=()
+latest_versions=('tip')
 
 
 for minor_version in $minor_versions; do
@@ -17,4 +17,29 @@ done
 # for element in "${latest_versions[@]}"; do
 #     echo "$element"
 # done
+
+tmux new-session -d -s install-go
+
+# Splitting the first pane horizontally
+tmux split-window -h -t install-go:0
+
+# Splitting the first pane vertically
+tmux split-window -v -t install-go:0
+
+# Splitting the second pane vertically
+tmux split-window -v -t install-go:1
+
+# commands=("goup install tip" "goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17" "goup install 1.18" "goup install 1.19")
+
+for i in "${latest_versions[@]}"; do
+    command="goup install $i"
+    echo $command
+    tmux select-pane -t install-go:0
+    tmux split-window -v -t install-go:0
+    tmux send-keys "$i" Enter
+done
+
+tmux select-pane -t install-go:0
+tmux attach-session -t install-go
+
 
