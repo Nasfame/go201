@@ -27,6 +27,8 @@ goup install
 
 echo 'export PATH="$PATH:/home/codespace/.go/bin"' >> ~/.bashrc
 echo 'export PATH="$PATH:/home/codespace/.go/current/bin"' >> ~/.bashrc
+echo 'unset GOROOT' >> ~/.bashrc
+
 
 source ~/.bashrc
 
