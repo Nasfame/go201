@@ -1,0 +1,13 @@
+init=https://gist.githubusercontent.com/Nasfame/c0ecdffe0be8ae9174a9c74563b2a5f5/raw/2e99d0a89a568b97d06ad84aea3cf7bfa2367479/init-go
+
+init=https://raw.githubusercontent.com/golangFame/go201/main/init
+
+curl -sSL $init | cat > init
+
+cat $init | bash
+
+air=https://raw.githubusercontent.com/golangFame/go201/main/.air.toml
+
+wget $air
+
+
