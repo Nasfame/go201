@@ -1,5 +1,7 @@
 module go201
 
+go 1.18
+
 
 require (
 	github.com/clipperhouse/fsnotify v1.1.0 // indirect
