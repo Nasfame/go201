@@ -16,7 +16,7 @@ func main() {
 		i := bytes.IndexByte(x, '5')
 
 		// Has race report:
-		//i := IndexByte(x, '5')
+		// i := IndexByte(x, '5')
 		ch <- i
 	}()
 	runtime.Gosched()
