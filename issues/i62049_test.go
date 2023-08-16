@@ -16,16 +16,16 @@ func WithRed(v bool) Option {
 }
 func btoi(b bool) int {
 	if b {
-		return 1 << 5
+		return 1
 	} 
-	return 2
+	return 0
 }
 
 func WithGreen(v bool) Option {
 	if v {
-		return flags(1<<5)
+		return flags(1)
 	} 
-	return flags(2)
+	return flags(0)
 }
 
 var sink Option
