@@ -10,3 +10,4 @@ require (
 	github.com/golang-devops/gen v4.1.1+incompatible // indirect
 	golang.org/x/tools v0.0.0-20200107050322-53017a39ae36 // indirect
 )
+
