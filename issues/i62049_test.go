@@ -8,7 +8,7 @@ type flags uint64
 func (flags) option() {}
 
 func WithRed(v bool) Option {
-	return flags(btoi(v) << 15)
+	return flags(btoi(v))
 }
 
 func btoi(b bool) int {
@@ -21,7 +21,7 @@ func btoi(b bool) int {
 
 func WithGreen(v bool) Option {
 	if v {
-		return flags(1 << 15)
+		return flags(1)
 	} else {
 		return flags(0)
 	}
