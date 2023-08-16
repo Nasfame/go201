@@ -16,14 +16,14 @@ func WithRed(v bool) Option {
 }
 func btoi(b bool) int {
 	if b {
-		return 1 << 15
+		return 1 << 5
 	} 
 	return 2
 }
 
 func WithGreen(v bool) Option {
 	if v {
-		return flags(1<<15)
+		return flags(1<<5)
 	} 
 	return flags(2)
 }
