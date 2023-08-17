@@ -11,5 +11,6 @@ go tool compile -o compile.o compile.go
 # go tool link -o executable main.o x.o
 
 # Creating a package archive: If the object file represents a package that you want to distribute as a library, you can create a package archive (.a file) using the go tool pack command.
+rm compile.a
 go tool pack r compile.a compile.o
 
