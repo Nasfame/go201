@@ -1,0 +1,1 @@
+GOOS=windows go build -gcflags "all=-N -l"  main.go
