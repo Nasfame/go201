@@ -2,7 +2,7 @@
 
 package main
 
-type c struct {
+type C struct {
 }
 
 func main() {
