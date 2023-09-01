@@ -2,10 +2,13 @@
 
 package main
 
+import "fmt"
+
 type C struct {
 }
 
 func main() {
-	x := 1
+	fmt.Println("main.go")
+	_ = 1
 
 }
