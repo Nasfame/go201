@@ -8,5 +8,5 @@ type C struct {
 }
 
 func main() {
-	fmt.Println("hey")
+	fmt.Println("main2")
 }
