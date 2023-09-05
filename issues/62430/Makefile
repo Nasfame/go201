@@ -1,5 +1,5 @@
-build-p1:
-	go build -buildmode=plugin ./p1
+build-p1: 
+		go build -buildmode=plugin ./p1
 
-run:
-  go run main.go
+run: 
+		go run main.go

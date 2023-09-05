@@ -1,11 +1,9 @@
 package main
 
-import (
-	"regexp"
-)
+// "regexp"
 
 func F() {
-	_ = regexp.MustCompile(`\w+`)
+	// _ = regexp.MustCompile(`\w+`)
 }
 
 func main() {}
