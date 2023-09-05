@@ -10,4 +10,7 @@ build-ru:
 build-chi:
 	go build -buildmode=plugin -o swe/swe.so swe/greeter.go
 
+run: 
+	go run greeter.go
+
 # Currently supports only Unix, MacOs, Linux.. not windows
