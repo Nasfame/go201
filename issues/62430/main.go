@@ -1,6 +1,7 @@
 package main
 
 import (
+	"log"
 	"plugin"
 	"regexp/syntax"
 )
@@ -16,7 +17,9 @@ func main() {
 	}
 	s, err := p.Lookup("F")
 	if err != nil {
-		panic(err)
+		log.Fatal("lookup F failed with err", err)
+	} else {
+		log.Println("lookup F success")
 	}
 
 	f := s.(func())
