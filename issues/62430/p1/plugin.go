@@ -12,4 +12,5 @@ func F() {
 
 func main() {
 	fmt.Println("plugin init")
+	F()
 }
