@@ -37,7 +37,7 @@ func main() {
 		return
 	}
 
-	statusCh, errCh := client.ContainerWait(ctx, container.ID, "removed")
+	statusCh, errCh := client.ContainerWait(ctx, container.ID, "") //not-running is also good option
 	select {
 	case err := <-errCh:
 		if err != nil {
