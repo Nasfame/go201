@@ -26,7 +26,7 @@ func main() {
         return
     }
 
-    err = client.ContainerStart(ctx, container.ID, types.ContainerStartOptions{})
+    err = client.ContainerStart(ctx, container.ID)
     if err != nil {
         fmt.Println(err)
         return
