@@ -19,10 +19,15 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-// TODO: make sure u do docker pull , write go script to do docker pull
+
+	imageName := "ghcr.io/decenter-ai/compute:v1.5.5"
+
+	client.ImagePull(ctx, imageName) // TODO: handle error
+
+	// TODO: make sure u do docker pull , write go script to do docker pull
 	config := &container.Config{
-		Image: "ghcr.io/decenter-ai/compute:v1.5.5",
-		Cmd:   []string{"echo","hi"},
+		Image: imageName,
+		Cmd:   []string{"echo", "hi"},
 	}
 
 	container, err := client.ContainerCreate(ctx, config, nil, nil, &ocispec.Platform{
@@ -39,7 +44,7 @@ func main() {
 		return
 	}
 
-	statusCh, errCh := client.ContainerWait(ctx, container.ID, "") //not-running is also good option
+	statusCh, errCh := client.ContainerWait(ctx, container.ID, "") // not-running is also good option
 	select {
 	case err := <-errCh:
 		if err != nil {
