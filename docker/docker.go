@@ -17,10 +17,10 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-
+// make sure u do docker pull ubuntu 
 	config := &container.Config{
-		Image: "ubuntu:latest",
-		Cmd:   []string{"bash"},
+		Image: "ubuntu",
+		Cmd:   []string{"echo","hi"},
 	}
 
 	container, err := client.ContainerCreate(ctx, config, nil, nil, &ocispec.Platform{
