@@ -22,7 +22,19 @@ func main() {
 
 	imageName := "ghcr.io/decenter-ai/compute:v1.5.5"
 
-	client.ImagePull(ctx, imageName) // TODO: handle error
+	reader, err := client.ImagePull(ctx, imageName, types.ImagePullOptions{})
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	_, err = io.Copy(os.Stdout, reader)
+	if err != nil {
+		fmt.Println(err)
+		return
+	}
+
+	fmt.Println("Image pulled successfully!")
 
 	// TODO: make sure u do docker pull , write go script to do docker pull
 	config := &container.Config{
