@@ -41,7 +41,7 @@ func main() {
 	// TODO: make sure u do docker pull , write go script to do docker pull
 	config := &container.Config{
 		Image: imageName,
-		Cmd:   []string{"echo", "hi"},
+		// Cmd:   []string{},
 	}
 
 	container, err := client.ContainerCreate(ctx, config, nil, nil, &ocispec.Platform{
