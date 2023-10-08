@@ -19,15 +19,15 @@ func main() {
 		fmt.Println(err)
 		return
 	}
-// make sure u do docker pull ubuntu 
+// TODO: make sure u do docker pull , write go script to do docker pull
 	config := &container.Config{
-		Image: "ubuntu",
+		Image: "ghcr.io/decenter-ai/compute:v1.5.5",
 		Cmd:   []string{"echo","hi"},
 	}
 
 	container, err := client.ContainerCreate(ctx, config, nil, nil, &ocispec.Platform{
 		OS: "Linux",
-	}, "casual")
+	}, "")
 	if err != nil {
 		fmt.Println(err)
 		return
