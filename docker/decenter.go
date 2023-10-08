@@ -51,6 +51,7 @@ func main() {
 		fmt.Println(err)
 		return
 	}
+	fmt.Println("containerID", container.ID)
 
 	err = client.ContainerStart(ctx, container.ID, types.ContainerStartOptions{})
 	if err != nil {
