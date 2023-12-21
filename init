@@ -8,11 +8,11 @@ export GOBIN="/go/bin"
 
 echo 'export PATH="$PATH:$GOBIN"' >> ~/.bashrc
 
-
+go install github.com/owenthereal/goup/cmd/goup@latest
 go install github.com/cosmtrek/air@latest
- go install github.com/clipperhouse/gen@latest
- go install golang.org/dl/gotip@latest
- gotip download
+go install github.com/clipperhouse/gen@latest
+go install golang.org/dl/gotip@latest
+gotip download
 
 curl https://wazero.io/install.sh | sh
 cp ./bin/wazero $GOBIN/wasm
