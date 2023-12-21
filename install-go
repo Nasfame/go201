@@ -4,7 +4,7 @@ versions=$(goup search)
 
 filtered_versions=$(echo "$versions" | grep -v -E '(beta|rc)')
 minor_versions=$(echo "$filtered_versions" | awk -F'.' '{ print $1"."$2 }' | sort -u)
-latest_versions=('tip')
+latest_versions=() #('tip')
 
 
 for minor_version in $minor_versions; do

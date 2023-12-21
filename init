@@ -64,8 +64,8 @@ goup upgrade
 tmux new-session -d -s mysession
 tmux split-window -h -t mysession:0
 
-rmemoved=("goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17")
-commands=("goup install tip"  "goup install 1.16" "goup install 1.18" "goup install 1.19","goup install 1.20","goup install 1.21")
+rmemoved=("goup install tip" "goup install 1.13" "goup install 1.14" "goup install 1.15" "goup install 1.16" "goup install 1.17")
+commands=("goup install 1.16" "goup install 1.18" "goup install 1.19","goup install 1.20","goup install 1.21")
 
 for i in "${commands[@]}"; do
     tmux select-pane -t mysession:0
